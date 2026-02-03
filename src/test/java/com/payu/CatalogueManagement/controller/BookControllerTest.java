@@ -72,7 +72,7 @@ class BookControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(sampleBook)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name").value("TestBook"))
+                .andExpect(jsonPath("$.name").value("Test Book"))
                 .andExpect(jsonPath("$.bookType").value("HARDCOVER"));
     }
 
