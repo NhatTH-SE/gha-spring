@@ -57,8 +57,8 @@ class BookControllerTest {
         Mockito.when(service.save(any(Book.class))).thenReturn(sampleBook);
 
         mockMvc.perform(post("/api/books/addBook")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(sampleBook)))
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(sampleBook)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name").value("Test Book"))
                 .andExpect(jsonPath("$.isbnNumber").value("ISBN123"));
@@ -69,10 +69,10 @@ class BookControllerTest {
         Mockito.when(service.update(eq(1L), any(Book.class))).thenReturn(sampleBook);
 
         mockMvc.perform(put("/api/books/updateBook/1")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsString(sampleBook)))
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(sampleBook)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.name").value("Test Book"))
+                .andExpect(jsonPath("$.name").value("TestBook"))
                 .andExpect(jsonPath("$.bookType").value("HARDCOVER"));
     }
 
@@ -86,4 +86,3 @@ class BookControllerTest {
         Mockito.verify(service).delete(1L);
     }
 }
-
