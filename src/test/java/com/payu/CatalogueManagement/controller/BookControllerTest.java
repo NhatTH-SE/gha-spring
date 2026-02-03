@@ -73,7 +73,7 @@ class BookControllerTest {
                 .content(objectMapper.writeValueAsString(sampleBook)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name").value("Test Book"))
-                .andExpect(jsonPath("$.bookType").value("HARDCOVER"));
+                .andExpect(jsonPath("$.bookType").value("HARD COVER"));
     }
 
     @Test
