@@ -39,7 +39,7 @@ class BookServiceTest {
 
     @Test
     void testSave_ShouldReturnSavedBook() {
-        Book book = new Book(null, "New Book", "112233", LocalDate.now(), 120.0, BookType.SOFTCOVER);
+        Book book = new Book(null, "New Book", "abc", LocalDate.now(), 120.0, BookType.SOFTCOVER);
         Book savedBook = new Book(1L, "New Book", "112233", LocalDate.now(), 120.0, BookType.SOFTCOVER);
         when(repository.save(book)).thenReturn(savedBook);
 
@@ -57,7 +57,7 @@ class BookServiceTest {
 
         Book result = service.update(5L, bookToUpdate);
 
-//        assertThat(result.getId()).isEqualTo(5L);
+        // assertThat(result.getId()).isEqualTo(5L);
         assertThat(result.getName()).isEqualTo("Updated Book");
         verify(repository).save(bookToUpdate);
     }
